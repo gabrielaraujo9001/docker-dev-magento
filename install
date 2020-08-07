@@ -1,5 +1,21 @@
 #!/usr/bin/env bash
 
+echo "Que versão do PHP você deseja utilizar no container?"
+echo "1 - PHP 7.1"
+echo "2 - PHP 7.2"
+echo "3 - PHP 7.3"
+
+read opcao
+
+if [ $opcao -lt 1 -o $opcao -gt 3 ];
+then
+  echo "Opção inválida"
+  exit 1
+else
+  VERSAO_PHP="7.$opcao"
+  echo $VERSAO_PHP
+fi
+
 if [ ! -d "src" ]; then
   git clone git@github.com:Bleez/magento-dev-pacotes.git src
 fi
@@ -41,6 +57,10 @@ sed -i '' -e "s/<projeto>/$NOME_PASTA/g" \
           image/bin/redis-flush \
           image/extras/env.sample.php \
           config/nginx.conf;
+
+sed -i '' -e "s/<versao_php>/$VERSAO_PHP/g" \
+          docker-compose.yml \
+          docker-compose-$(uname -s).yml;
 
 sed -i '' -e  "s#<path-local>#$PWD#g" .env;
 

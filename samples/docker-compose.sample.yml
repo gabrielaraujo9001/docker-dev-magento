@@ -2,7 +2,7 @@ version: '3'
 
 services:
   <projeto>-php:
-    image: brunoviana/magento-php-7.3
+    image: brunoviana/magento-php-<versao_php>
     
     user: '1000:33'
     
