@@ -13,7 +13,6 @@ then
   exit 1
 else
   VERSAO_PHP="7.$opcao"
-  echo $VERSAO_PHP
 fi
 
 if [ ! -d "src" ]; then
@@ -68,5 +67,3 @@ sed -i '' -e  "s#<path-local>#$PWD#g" .env;
 sudo chmod u+x install kill logs shell start stop update root
 
 echo "Concluído. Para iniciar execute: ./start"
-
-
