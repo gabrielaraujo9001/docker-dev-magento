@@ -35,7 +35,7 @@ $ ./install
 
 > O Comando `./install` também irá clonar o [Magento Bleez](https://github.com/Bleez/magento-dev-pacotes) próprio para desenvolvimento de pacotes. Ele contém comandos especiais para ajudar no desenvolvimento e testes dos pacotes. Consulte a página do repositório para saber mais.
 
-> Dica: Caso queira trabalhar com outro Magento no lugar do *Magento Bleez* você pode criar manuamente a apsta `src` e colocar seu Magento dentro. Faça isso ANTES de rodar o comando `./install`.
+> Dica: Caso queira trabalhar com outro Magento no lugar do *Magento Bleez* você pode criar manuamente a pasta `src` e colocar seu Magento dentro. Faça isso ANTES de rodar o comando `./install`.
 
 ### Iniciando containers
 
@@ -46,7 +46,9 @@ Exemplo:
 $ ./start
 ```
 
-> Por padrão o ambiente usará as portas 80, 8080 e 3306. Se quiser mudar as portas que os containers usa edite arquivo `.env` localizado na raiz.
+> Por padrão o ambiente usará as portas 80, 8080 e 3306. Se quiser mudar as portas que os containers usam, edite arquivo `.env` localizado na raiz.
+
+> Importante: Antes de rodar o comando `./start`, verifique se a pasta `src` contém o arquivo `nginx.conf.sample` (deve vir com o Magento).
 
 Este comando instalará todas as imagens que o Docker precisa para fazer o ambiente funcionar e iniciará os mesmos.
 
