@@ -22,7 +22,7 @@ Uma vez que o repositório foi clonado e instalado você terá um ambiente com:
 ## Instalação
 
 ```bash
-$ PROJETO="magento-pacotes-bleez" && git clone git@github.com:Bleez/docker-dev-magento.git $PROJETO && cd $PROJETO
+$ PROJETO="magento-pacotes-bleez" && git clone git@github.com:gabrielaraujo9001/docker-dev-magento.git $PROJETO && cd $PROJETO
 ```
 
 Você pode trocar `magento-pacotes-bleez` por qualquer outro nome de sua preferência.
