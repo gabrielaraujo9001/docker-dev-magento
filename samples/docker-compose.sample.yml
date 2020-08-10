@@ -75,20 +75,20 @@ services:
     networks:
     - <projeto>-network
 
-  <projeto>-phpmyadmin:
-    image: phpmyadmin/phpmyadmin
+  # <projeto>-phpmyadmin:
+  #   image: phpmyadmin/phpmyadmin
 
-    container_name: <projeto>-phpmyadmin
+  #   container_name: <projeto>-phpmyadmin
     
-    environment:
-    - PMA_HOST=<projeto>-db
-    - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
+  #   environment:
+  #   - PMA_HOST=<projeto>-db
+  #   - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
     
-    ports:
-    - ${PMA_PORT}:80
+  #   ports:
+  #   - ${PMA_PORT}:80
   
-    networks:
-    - <projeto>-network
+  #   networks:
+  #   - <projeto>-network
 
   <projeto>-redis:
     image: redis
