@@ -6,6 +6,13 @@ alias mage='php -d memory_limit=-1 -f bin/magento'
 alias magento='php -d memory_limit=-1 -f bin/magento'
 alias node='nodejs'
 
+alias m2_compile="php bin/magento setup:di:compile"
+
+function m2_permissions() {
+   echo -e "\033[36mAlterando permissões dos diretórios do Magento\033[0m"
+   chmod -R 777 generated/ var/ pub/static/
+}
+
 function m2_upgrade() {
    rm -r var/
    php bin/magento setup:upgrade
@@ -26,6 +33,7 @@ function m2_clear() {
 function m2_deploy() {
    m2_clear "$1"
    php bin/magento setup:static-content:deploy pt_BR -f
+   m2_permissions
 }
 
 function m2_reindex() {

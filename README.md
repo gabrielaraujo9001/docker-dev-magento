@@ -7,7 +7,7 @@ Para esse SDK funcionar é necessário que você tenha o [Docker](https://docs.d
 
 Uma vez que o repositório foi clonado e instalado você terá um ambiente com:
 
-* PHP 7.2
+* PHP (7.1 a 7.3)
 * Nginx
 * Maria DB
 * Redis
@@ -32,6 +32,8 @@ Em seguida instale o ambiente rodando:
 ```bash
 $ ./install
 ```
+
+Você poderá escolher a versão do PHP que deseja instalar no Docker. Para utilizar várias versões de PHP, faça novas instalações deste ambiente em diretórios diferentes.
 
 > O Comando `./install` também irá clonar o [Magento Bleez](https://github.com/Bleez/magento-dev-pacotes) próprio para desenvolvimento de pacotes. Ele contém comandos especiais para ajudar no desenvolvimento e testes dos pacotes. Consulte a página do repositório para saber mais.
 
@@ -63,7 +65,7 @@ $ ./stop
 
 ### Instalando o Magento
 
-Para instalar o Magento precisaremos entrar dentro do container e executar a instalação lá de dentro. Para isso, uma vez que você iniciou os containers com o comando `./start`, digite:
+Para instalar o Magento precisaremos entrar no container e executar a instalação lá de dentro. Para isso, uma vez que você iniciou os containers com o comando `./start`, digite:
 
 ```bash
 $ ./shell php
@@ -114,7 +116,7 @@ Você também pode utilizar o phpMyAdmin acessando `http://127.0.0.1:8080`.
 
 ## Entrando nos containers
 
-Pode acontecer casos que você precise entrar dentro de um dos containers. Caso você tenha essa necessidade você pode fazer isso usando o comando `./shell <servico>`.
+Pode acontecer casos que você precise entrar em um dos containers. Caso você tenha essa necessidade você pode fazer isso usando o comando `./shell <servico>`.
 
 Por exemplo, caso você queira executar no container que roda o PHP, execute:
 
@@ -131,7 +133,7 @@ Estes são os serviços disponíveis nesse comando:
 
 ## Personalizando seu docker-compose.yml
 
-Como o `docker-compose.yml` do ambiente é compilado e as vezes é necessário recompilá-lo, existe o arquivo `docker-compose.custom.yml` onde você pode colocar suas próprias definições do Docker Compose.
+Como o `docker-compose.yml` do ambiente é compilado e às vezes é necessário recompilá-lo, existe o arquivo `docker-compose.custom.yml` onde você pode colocar suas próprias definições do Docker Compose.
 
 Esse arquivo é apenas criado no momento da instalação e nunca mais é alterado pelo ambiente.
 
@@ -173,9 +175,11 @@ Os comando abaixo devem ser executados dentro do container `php` através do com
 | `install-magento` | Executa instalação do Magento que está instalado na dentro de `/src`. Se você executar este comando com um Magento já instalado tudo será apagado e uma nova instalação será feita.||      
 | `redis-flush`  | Limpa todo o Redis, tanto o cache de arquivos como a sessão.        | |
 | `xdebug`  | Habilita ou desabilita o uso do Xdebug ao rodar o PHP via linha de comando.       | |
+| `m2_compile`  | Executa o comando `setup:di:compile`.       | |
 | `m2_upgrade`  | Limpa a pasta `/var` e roda o `setup:upgrade`        | |
 | `m2_clear`  | Limpa a pasta `/var` e apaga todos os arquivos compilados pelo Magento (`/generated` e `/pub/static`).        | |
-| `m2_deploy`  | Limpa tudo rodando `m2_clear` e em seguida roda `setup:static-content:deploy pt_BR -f`.        | |
+| `m2_deploy`  | Limpa tudo rodando `m2_clear`, roda `setup:static-content:deploy pt_BR -f` e altera as permissões das pastas com `m2_permissions`.        | |
+| `m2_permissions`  | Configura as permissões das pastas do Magento.        | |
 | `m2_reindex`  | Reindexa a loja inteira       | |
 | `m2_collect_phrases`  | Executa `i18n:collect-phrases` dentro da pasta do tema do cliente (`/app/project/tema-do-cliente`) especificado por parâmetro.        | |
 | `disable_fucking_modules`  | Desabilita modulos que não são necessários para desenvolvimento. Isso pode deixar o processamente e a velocidade do Magento mais leve.        | |

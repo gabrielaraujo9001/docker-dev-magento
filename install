@@ -17,6 +17,8 @@ fi
 
 if [ ! -d "src" ]; then
   git clone git@github.com:Bleez/magento-dev-pacotes.git src
+else
+  cp samples/magento.nginx.conf.sample src/nginx.conf.sample
 fi
 
 NOME_PASTA=${PWD##*/}
