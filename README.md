@@ -16,7 +16,7 @@ Uma vez que o repositório foi clonado e instalado você terá um ambiente com:
 * Grunt
 * Composer
 * XDebug
-* PHPMyAdmin
+* PHPMyAdmin (comentado por padrão)
 * Mailhog
 
 ## Instalação
@@ -37,7 +37,7 @@ Você poderá escolher a versão do PHP que deseja instalar no Docker. Para util
 
 > O Comando `./install` também irá clonar o [Magento Bleez](https://github.com/Bleez/magento-dev-pacotes) próprio para desenvolvimento de pacotes. Ele contém comandos especiais para ajudar no desenvolvimento e testes dos pacotes. Consulte a página do repositório para saber mais.
 
-> Dica: Caso queira trabalhar com outro Magento no lugar do *Magento Bleez* você pode criar manuamente a pasta `src` e colocar seu Magento dentro. Faça isso ANTES de rodar o comando `./install`.
+> Dica: Caso queira trabalhar com outro Magento no lugar do *Magento Bleez*, você pode clonar seu repositório, nomeando-o como `src`. Faça isso ANTES de rodar o comando `./install`.
 
 ### Iniciando containers
 
@@ -108,7 +108,7 @@ Você pode acessar o banco de dados com as seguintes configurações:
 * **Login:** magento
 * **Senha:** magento
 
-> Por padrão a senha de root é **123**
+Se desejar criar novos bancos de dados no mesmo ambiente, será preciso acessar com o usuário `root`. Por padrão, a senha de root é **root**.
 
 Você também pode utilizar o phpMyAdmin acessando `http://127.0.0.1:8080`.
 
