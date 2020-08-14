@@ -56,12 +56,14 @@ Este comando instalará todas as imagens que o Docker precisa para fazer o ambie
 
 Se você quiser parar os containers execute o comando `./stop`.
 
-Se você estiver usando OSX o docker ficará rodando no seu terminal quando executar `./start`. Nesse caso para parar os containers execute `CTRL + C`.
-
 Exemplo:
 ```bash
 $ ./stop
 ```
+
+Se você estiver usando OSX, o Docker ficará rodando no seu terminal quando executar `./start`, apresentando erros e logs dos containers.
+É interessante manter esse terminal aberto e iniciar uma nova janela do terminal para trabalhar paralelamente.
+
 
 ### Instalando o Magento
 
