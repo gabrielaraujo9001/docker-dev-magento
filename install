@@ -1,13 +1,14 @@
 #!/usr/bin/env bash
 
 echo "Que versão do PHP você deseja utilizar no container?"
+echo "0 - PHP 7.0"
 echo "1 - PHP 7.1"
 echo "2 - PHP 7.2"
 echo "3 - PHP 7.3"
 
 read opcao
 
-if [ $opcao -lt 1 -o $opcao -gt 3 ];
+if [ $opcao -lt 0 -o $opcao -gt 3 ];
 then
   echo "Opção inválida"
   exit 1
